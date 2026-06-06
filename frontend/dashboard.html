@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>CRM</h2>
+    <button onclick="showSection('leads')">Leads</button>
+    <button onclick="showSection('analytics')">Analytics</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- LEADS -->
+    <div id="leadsSection">
+
+      <div class="card">
+        <h3>Add Lead</h3>
+        <form id="leadForm">
+          <input id="name" placeholder="Name" required>
+          <input id="leadEmail" placeholder="Email" required>
+          <input id="source" placeholder="Source">
+
+          <select id="status">
+            <option value="new">New</option>
+            <option value="contacted">Contacted</option>
+            <option value="converted">Converted</option>
+          </select>
+
+          <button type="submit">Add</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>Your Leads</h3>
+        <ul id="leadsList"></ul>
+      </div>
+
+    </div>
+
+    <!-- ANALYTICS -->
+    <div id="analyticsSection" style="display:none">
+
+      <div class="card">
+        <h3>Lead Status Chart</h3>
+        <canvas id="chart"></canvas>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+  loadLeads();
+</script>

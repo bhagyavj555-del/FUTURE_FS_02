@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mini CRM</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      margin: 0;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+
+    input, select {
+      padding: 10px;
+      margin: 8px 5px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      width: 180px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      background: #667eea;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #5a67d8;
+    }
+
+    .danger {
+      background: #e74c3c;
+    }
+
+    .danger:hover {
+      background: #c0392b;
+    }
+
+    .lead {
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .lead b {
+      color: #333;
+    }
+
+    .lead-buttons button {
+      margin: 5px 5px 5px 0;
+    }
+
+    #message {
+      font-weight: bold;
+      color: green;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<h1>Mini CRM Dashboard</h1>
+
+<div class="container">
+
+  <!-- REGISTER -->
+  <div class="card">
+    <h3>Register</h3>
+    <input id="regEmail" placeholder="Email">
+    <input id="regPassword" type="password" placeholder="Password">
+    <button onclick="register()">Register</button>
+  </div>
+
+  <!-- LOGIN -->
+  <div class="card">
+    <h3>Login</h3>
+    <input id="loginEmail" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p id="message"></p>
+  </div>
+
+  <!-- ADD LEAD -->
+  <div class="card">
+    <h3>Add Lead</h3>
+    <form id="leadForm">
+      <input id="name" placeholder="Name" required>
+      <input id="leadEmail" placeholder="Email" required>
+      <input id="source" placeholder="Source">
+
+      <select id="status">
+        <option value="new">New</option>
+        <option value="contacted">Contacted</option>
+        <option value="converted">Converted</option>
+      </select>
+
+      <input id="notes" placeholder="Notes">
+      <button type="submit">Add Lead</button>
+    </form>
+  </div>
+
+  <!-- LEADS -->
+  <div class="card">
+    <h3>Your Leads</h3>
+    <div id="leadsList"></div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
