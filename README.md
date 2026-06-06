@@ -1,4 +1,4 @@
-# 🚀 Mini CRM System
+# Mini CRM System
 
 A full-stack CRM application to manage leads, built using HTML, CSS, JavaScript, Node.js, Express, and MongoDB.
 
