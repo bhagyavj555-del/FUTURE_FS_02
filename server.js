@@ -5,11 +5,16 @@ require("dotenv").config();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// ✅ CORS (ONLY ONCE — CLEAN)
+app.use(cors({
+    origin: "https://future-mini-crm.netlify.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
+
 app.use(express.json());
 
-// Debug 
+// Debug middleware
 app.use((req, res, next) => {
     console.log("Incoming request:", req.method, req.url);
     next();
@@ -19,19 +24,19 @@ app.use((req, res, next) => {
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/leads", require("./routes/leads"));
 
-//Test route
+// Test route
 app.get("/test", (req, res) => {
     res.send("API is working");
 });
 
-// ✅ MongoDB
+// MongoDB
 mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("✅ MongoDB Connected Successfully"))
 .catch(err => console.log(err));
 
-// ✅ Start server
+// Start server
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+    console.log(`🚀 Server running on port ${PORT}`);
 });

@@ -1,4 +1,4 @@
-const API ="https://FUTURE_FS_02-95jz.onrender.com/api";
+const API ="https://FUTURE-FS-02-95jz.onrender.com/api";
 
 // ================= REGISTER =================
 async function register() {
